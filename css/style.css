@@ -7,6 +7,79 @@
 body{
     font-family: "Roboto", sans-serif;
 }
+/*** Animation ***/
+@keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translate3d(100px, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 70px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeInUpSlow {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+} 
+@keyframes fadeInUpSlower {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 200px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+}
+/*scroll animation*/
+.js-scroll {
+    opacity: 0;
+    /* transition: opacity 500ms; */
+  }
+  .js-scroll.scrolled {
+    opacity: 1;
+    transition: 2s;
+  }
+  .scrolled.fadeInRight{
+    animation: fadeInRight;
+  }
+  .scrolled.fadeInUp{
+    animation: fadeInUp 1s ease-in-out both;
+  }
+  .scrolled.fadeInUpSlow{
+    animation: fadeInUpSlow;
+  }
+  .scrolled.fadeInUpSlower{
+    animation: fadeInUpSlower;
+  }
+  .scrolled.delay-0-7s{
+    animation-duration: 0.7s;
+  }
+  .scrolled.delay-0-9s{
+    animation-duration: 0.9s;
+  }
+  .scrolled.delay-1-2s{
+    animation-duration: 1.2s;
+  }
+
 :root {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
@@ -61,6 +134,16 @@ li{
     line-height: 1.5;
     font-size: 0.9em;
     font-weight: 400;
+}
+.btn{
+    color: var(--bs-light);
+    background-color: #ff8e71;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
 }
 /*** Header ***/
 header{
@@ -204,8 +287,8 @@ header{
 }
 .nav .close-icon{
     display: none;
-    z-index: 2;
-    position: absolute;
+    z-index: 6;
+    position: fixed;
     top: 3px;
     right: 3px;
     font-size: 2.5rem;
@@ -214,6 +297,10 @@ header{
 }
 /* Mobile screen  */
 @media (max-width: 991px){
+    header{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     .burger{
         display: block;
     }
@@ -222,14 +309,14 @@ header{
     }
     .nav-bar{
         display: none;
-        position: absolute;
+        position: fixed;
         right: 0;
         width: 40%;
         top: 0;
         min-height: 100dvh;
         box-shadow: 0px 0px 20px -10px var(--bs-gray);
         background-color: var(--bs-white);
-        z-index: 1;
+        z-index: 5;
         animation: fadeInRight 0.5s;
         padding: 4rem 2rem;
     }
@@ -277,6 +364,15 @@ header{
         margin: 0;
     }
 }
+@media (max-width: 768px){
+    header{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .nav-bar{
+        width: 70%;
+    }
+}
 /*** Hero ***/
 .hero{
     background-image: url(../images/hero_1.jpg.webp);
@@ -289,24 +385,21 @@ header{
     text-align: center;
     margin-top: 7rem;
     justify-content: center;
-}.hero-content .text-p{
-    margin: 1rem 0;
 }
 .hero-content h1{
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--bs-secondary);
+    animation: fadeInUp 0.7s;
 }
-.btn{
-    color: var(--bs-light);
-    background-color: #ff8e71;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    cursor: pointer;
+.hero-content .btn{
+    animation: fadeInUpSlower 1.2s;
 }
+.hero-content .text-p{
+    margin: 1rem 0;
+    animation: fadeInUpSlow 0.9s;
+}
+
 
 /***  Bio section  ***/
 .bio{
@@ -331,7 +424,7 @@ header{
 .left-container h1{
     color: var(--bs-orange);
     font-size: 0.9rem;
-    font-weight: 100;
+    font-weight: 400;
 }
 .left-container p{
     font-size: 2rem;
@@ -622,6 +715,7 @@ header{
     }
     .right-testimonial .frame{
         max-width: 40%;
+        opacity: 0;
     }
 }
 @media (max-width: 768px){
@@ -676,4 +770,19 @@ footer{
 }
 .socials i:hover{
     background-color: var(--bs-primary);
+}
+@media (max-width: 991px){
+    footer{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .footer-container{
+        grid-template-columns: 1fr 2fr;
+    }
+}
+@media (max-width: 768px){
+    footer{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
