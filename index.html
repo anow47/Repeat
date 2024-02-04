@@ -17,39 +17,41 @@
     <header>
         <nav class="nav flex justify-content-space-between align-items-center">
             <a href="index.html" class="logo">Repeat</a>
-            <ul class="nav-bar flex align-items-center">
-                <li><a class="main-link active" href="index.html">Home</a></li>
-                <li class="main-link show-expand">
-                    <a href="#" class="services flex align-items-center justify-content-space-between">Services
-                        <div class="expand-icon-container first">
-                            <span class="material-symbols-outlined expand-icon">expand_more</span>
-                        </div>
-                    </a>
-                    <ul class="expand-more">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="flex align-items-center justify-content-space-between">Dropdown
-                                <div class="expand-icon-container second">
-                                    <span class="material-symbols-outlined expand-icon">chevron_right</span>
-                                </div>
-                            </a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Sub Menu One</a></li>
-                                <li><a href="#">Sub Menu Two</a></li>
-                                <li><a href="#">Sub Menu Three</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a class="main-link" href="#">Pricing</a></li>
-                <li><a class="main-link" href="#">About</a></li>
-                <li><a class="main-link" href="#">Contact Us</a></li>
-            </ul>
+            <div class="nav-overlay">
+                <ul class="nav-bar flex align-items-center">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li class="show-expand">
+                        <a href="#" class="services flex align-items-center justify-content-space-between">Services
+                            <div class="expand-icon-container first">
+                                <!-- <span class="material-symbols-outlined expand-icon">expand_more</span> -->
+                            </div>
+                        </a>
+                        <ul class="expand-more">
+                            <li><a href="#">Menu One</a></li>
+                            <li><a href="#">Menu Two</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="collapse flex align-items-center justify-content-space-between">Dropdown
+                                    <div class="expand-icon-container second">
+                                        <!-- <span class="material-symbols-outlined expand-icon">chevron_right</span> -->
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Sub Menu One</a></li>
+                                    <li><a href="#">Sub Menu Two</a></li>
+                                    <li><a href="#">Sub Menu Three</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <span class="material-symbols-outlined close-icon">close</span>
+                </ul>
+            </div>
             <div class="burger flex align-items-center">
                 <div class="burger-mneu"></div>
             </div>
-            <span class="material-symbols-outlined close-icon">close</span>
         </nav>
     </header>
     <section class="hero flex justify-content-center">

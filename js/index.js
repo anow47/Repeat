@@ -3,48 +3,28 @@ const expandMore = document.querySelector('.expand-more')
 const dropdown = document.querySelector('.dropdown')
 const closeIcon = document.querySelector('.close-icon')
 const navBar = document.querySelector('.nav-bar')
+const navOverlay = document.querySelector('.nav-overlay')
 
 
-document.querySelector('.burger').addEventListener('click', () => {
-    toggleMenu(navBar)
-    toggleMenu(closeIcon)
-})
-document.querySelector('.expand-icon-container').addEventListener('click',  () => {
-    toggleMenu(expandMore)
-})
-dropdown.addEventListener('click',  () => {
-    const subMenuNav = document.querySelector('.sub-menu')
-    toggleMenu(subMenuNav)
-})
+document.querySelector('.burger').addEventListener('click', this.showNavBar)
+closeIcon.addEventListener('click', this.hideNavBar)
+// navOverlay.addEventListener('click', this.hideNavBar)
 
-closeIcon.addEventListener('click', () => {
-    navBar.style.visibility = 'hidden'
-    closeIcon.style.visibility = 'hidden'
-})
-function toggleMenu(element){
-    element.style.visibility = (element.style.visibility === 'hidden')? 'visible' : 'hidden'
+// document.querySelector('.expand-icon-container').addEventListener('click',)
+// dropdown.addEventListener('click',)
+
+function showNavBar() {
+  navOverlay.classList.add('transparentBg')
+  navBar.classList.add('show-nav-bar')
+}
+function hideNavBar() {
+  navOverlay.classList.remove('transparentBg')
+  navBar.classList.remove('show-nav-bar')
 }
 
-
-const expandIconContainer = document.querySelectorAll('.expand-icon-container')
-const expandIcon = document.querySelectorAll('.expand-icon')
-expandIconContainer[0].addEventListener('click', () => {
-    expandIcon[0].style.rotate === '0deg'? 
-    expandIcon[0].style.rotate = '180deg' :
-    expandIcon[0].style.rotate = '0deg' 
-})
-expandIconContainer[1].addEventListener('click', () => {
-    expandIcon[1].style.rotate === '-90deg'? 
-    expandIcon[1].style.rotate = '90deg' : 
-    expandIcon[1].style.rotate = '-90deg' 
-})
-
-// card = [
-//     {}
-// ]
-
 // Add active class to active link and visited
-const currentLink = document.querySelectorAll('.nav-bar .main-link')
+const currentLink = document.querySelectorAll('.nav-bar a')
+console.log(currentLink)
 currentLink.forEach(link => {
     link.addEventListener('click', () => {
         currentLink.forEach(el => {
