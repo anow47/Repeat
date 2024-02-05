@@ -6,6 +6,49 @@ const navBar = document.querySelector('.nav-bar')
 const navOverlay = document.querySelector('.nav-overlay')
 
 
+const words = ["Awesome", "Nerd", "Good", "Excellent", "Geek"]
+
+let wordIndex = 0
+let letterIndex = 0
+let currentWord = ""
+let isDeleting = false
+
+function type() {
+  if (wordIndex === words.length) {
+    wordIndex = 0
+  }
+
+  currentWord = words[wordIndex];
+
+  if (isDeleting) {
+    currentWord = currentWord.slice(0, letterIndex - 1)
+  } else {
+    currentWord = currentWord.slice(0, letterIndex + 1)
+  }
+
+  document.querySelector('.auto-type').textContent = currentWord
+
+  if (!isDeleting && letterIndex === currentWord.length) {
+    isDeleting = true;
+    setTimeout(() => {
+      letterIndex--
+      type();
+    }, 1000)
+  } else if (isDeleting && letterIndex === 0) {
+    isDeleting = false;
+    wordIndex++
+    setTimeout(type, 1000);
+  } else {
+    isDeleting ? letterIndex-- : letterIndex++;
+    setTimeout(type, 100)
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(type, 500);
+});
+
+
 document.querySelector('.burger').addEventListener('click', this.showNavBar)
 closeIcon.addEventListener('click', this.hideNavBar)
 // navOverlay.addEventListener('click', this.hideNavBar)

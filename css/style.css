@@ -147,6 +147,10 @@ li{
 a:is(:link, :active, :visited).active {
     color: var(--bs-primary)
 }
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .logo {
+    font-family: "Comfortaa", sans-serif;
+}
 /*** Header ***/
 header{
     padding-left: var(--bs-section-padding);
@@ -431,9 +435,25 @@ header{
     margin-top: 7rem;
     justify-content: center;
 }
+.auto-type {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--bs-secondary);
+    animation: typing 0.8s steps(20) infinite;
+    padding-right: 0.5rem;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    50% {
+      border-right: none;
+    }
+  }
 .hero-content h1{
-    font-size: 3rem;
-    font-weight: 400;
+    font-size: 2.5rem;
+    font-weight: 300;
     color: var(--bs-secondary);
     animation: fadeInUp 0.7s;
 }
@@ -699,11 +719,17 @@ header{
     .stats{
         padding-left: 20px;
         padding-right: 20px;
+        padding-bottom: 2rem;
     }
     .stats-cards{
         flex-wrap: wrap;
         gap: 0.5rem;
         justify-content: center;
+    }
+    .stats-cards .card{
+        width: 300px;
+        height: 250px;
+        flex: auto;
     }
     .stats-cards .card:nth-child(2),
     .stats-cards .card:nth-child(4){
@@ -712,8 +738,8 @@ header{
 }
 @media (max-width: 768px){
     .stats{
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 /*** section testimonials ***/
@@ -721,15 +747,14 @@ header{
     padding-right: var(--bs-section-padding);
     padding-left: var(--bs-section-padding);
 }
-.testimonials .left-testimonial, .right-testimonial{
+.left-testimonial, .right-testimonial{
     width: 50%;
-    height: 500px;
+    height: auto;
+    position: relative;
+    margin-bottom: 8rem;
 }
 .left-testimonial{
     padding: 4rem 10rem 0 3rem;
-}
-.offer-text-container{
-    border: 1px solid;
 }
 .left-testimonial h1{
     color: var(--bs-secondary);
@@ -750,9 +775,9 @@ header{
     border: 4px solid var(--bs-light);
     max-width: 55%;
     margin: auto;
-    position: relative;
-    bottom: 9.7rem;
-    right: 5rem;
+    position: absolute;
+    bottom: -3.5rem;
+    left: -5rem;
 }
 @media (max-width: 991px){
     .testimonials{
@@ -761,17 +786,17 @@ header{
     }
     .testimonials{
         display: block;
+        margin-bottom: 6rem;
     }
     .testimonials .left-testimonial, .right-testimonial{
         width: 100%;
-        height: 100%;
+        margin-bottom: 0;
     }
     .left-testimonial{
         padding: 4rem 0;
     }
     .right-testimonial .frame{
         max-width: 40%;
-        opacity: 0;
     }
 }
 @media (max-width: 768px){
